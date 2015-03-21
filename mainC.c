@@ -1,6 +1,10 @@
-//Jeffrey Zhou
-//Jzhou46
-
+//
+// Jeffrey Zhou
+// JZhou46
+// CS 361
+// Linking - From Source Code to Executable Binary
+// 9/7/14
+//
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -37,7 +41,6 @@ double func1C( int func1C_arg1, int * func1C_arg2 ){
 	//adding up all the global variables
 	int globalTotal = mainCGlobal + mainCGlobalArrayTotal + * mainCGlobalPtr 
 		+ mainCInitGlobal + mainCInitGlobalArray[0] + * mainCInitGlobalPtr;
-//	printf("globalTotal = %d\n", globalTotal);
 
 	//initializing all static global array elements to 16 and adding them all up
 	int staticGlobalArrayTotal = 0;
@@ -51,7 +54,6 @@ double func1C( int func1C_arg1, int * func1C_arg2 ){
 	int staticGlobalTotal = mainCStaticGlobal + staticGlobalArrayTotal 
 		+ * mainCStaticGlobalPtr + mainCStaticInitGlobal 
 		+ mainCStaticInitGlobalArray[0] + * mainCStaticInitGlobalPtr;
-//	printf("staticGlobalTotal = %d\n", staticGlobalTotal);
 
 	//Local variables
 	int func1CLocal = 16, func1CLocalArray[16], * func1CLocalPtr = & func1CLocal,
@@ -70,7 +72,6 @@ double func1C( int func1C_arg1, int * func1C_arg2 ){
 	int func1CLocalTotal = func1CLocal + func1CLocalArrayTotal
 		+ * func1CLocalPtr + func1CInitLocal 
 		+ func1CInitLocalArray[0] + * func1CInitLocalPtr;
-//	printf("func1CLocalTotal = %d\n", func1CLocalTotal);
 
 	//static float local variables
 	static float func1CStaticLocal = 16, func1CStaticLocalArray[16],
@@ -91,7 +92,6 @@ double func1C( int func1C_arg1, int * func1C_arg2 ){
 	int func1CStaticFloatTotal = func1CStaticLocal + staticLocalArrayTotal
 		+  * func1CStaticLocalPtr + func1CStaticInitLocal + func1CStaticInitLocalArray[0]
 		+  * func1CStaticInitLocalPtr;
-//	printf("func1CStaticFloatTotal = %d\n", func1CStaticFloatTotal);
 
 	double total =  globalTotal + staticGlobalTotal + func1CLocalTotal + func1CStaticFloatTotal + func1C_arg1 + * func1C_arg2;
 	return total;
@@ -115,7 +115,6 @@ int main( int argc, char **argv ){
 	//adding up all the global variables
 	int globalTotal = mainCGlobal + mainCGlobalArrayTotal + * mainCGlobalPtr
 		+ mainCInitGlobal + mainCInitGlobalArray[0] + * mainCInitGlobalPtr;
-//	printf("globalTotal = %d\n", globalTotal);
 
 	//initializing all static global array elements to 16 and adding them all up
 	int staticGlobalArrayTotal = 0;
@@ -129,7 +128,6 @@ int main( int argc, char **argv ){
 	int staticGlobalTotal = mainCStaticGlobal + staticGlobalArrayTotal
 		+ * mainCStaticGlobalPtr + mainCStaticInitGlobal
 		+ mainCStaticInitGlobalArray[0] + * mainCStaticInitGlobalPtr;
-//	printf("staticGlobalTotal = %d\n", staticGlobalTotal);
 
 	//Local Declarations	
 	int mainLocal = 16, mainLocalArray[16], * mainLocalPtr = &mainLocal, 
@@ -146,7 +144,6 @@ int main( int argc, char **argv ){
 
 	//adding all main local variables 
 	int mainLocalTotal = mainLocal + mainLocalArrayTotal + * mainLocalPtr + 	mainInitLocal	+ mainInitLocalArray[0] + * mainInitLocalPtr;
-//	printf("mainLocalTotal = %d\n", mainLocalTotal);
 
 	//static float local variables 
 	static float mainStaticLocal = 16, mainStaticLocalArray[16], 
@@ -166,7 +163,6 @@ int main( int argc, char **argv ){
 	//adding up all static float variables 
 	int staticFloatTotal = mainStaticLocal + staticLocalArrayTotal
 		+ * mainStaticLocalPtr + mainStaticInitLocal + mainStaticInitLocalArray[0] + * mainStaticInitLocalPtr;
-//	printf("staticFloatTotal = %d\n", staticFloatTotal);
 	
 	int a = func2C(func2CGlobal, & func2CGlobal);
 	double b = (double) a;
@@ -175,10 +171,7 @@ int main( int argc, char **argv ){
 	double total = globalTotal + staticGlobalTotal + mainLocalTotal 
 	+ staticFloatTotal + func1C(mainCGlobal, & mainCGlobal)
 	+ b;
-
- //       printf("func1C = %f\n", func1C(mainCGlobal, & mainCGlobal));
-//	printf("func2C = %f\n", func2C(mainCGlobal, & mainCGlobal));
-//	printf("func2C = %f\n", b);	
+	
 	printf("The grand total of all variables in the program is %f\n", total);
 
 }
